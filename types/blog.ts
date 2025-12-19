@@ -1,28 +1,19 @@
 export interface BlogPost {
   _id: string
-  _createdAt: string
   title: string
-  slug: {
-    current: string
-  }
-  author: string
-  mainImage?: {
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }
-  categories?: string[]
+  slug: string
+  excerpt: string
+  content: string
+  image?: string
   publishedAt: string
-  excerpt?: string
-  body: any[]
+  category?: string
+  author?: {
+    name: string
+    image?: string
+  }
+  readingTime?: number
 }
 
-export interface BlogCategory {
-  _id: string
-  title: string
-  slug: {
-    current: string
-  }
-  description?: string
+export interface BlogProps {
+  posts: BlogPost[]
 }

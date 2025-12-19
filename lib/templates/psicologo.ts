@@ -2,18 +2,22 @@ import { TemplateConfig } from '@/types/templates'
 
 export const psicologoTemplate: TemplateConfig = {
   name: '[Nome]',
+  logo: '/images/psicologo_logo.png',
   type: 'psicologo',
   colors: {
     primary: '#7C3AED', // Roxo suave e profissional
     secondary: '#1E293B',
     accent: '#2563EB',
     background: '#F5F3FF',
-    text: '#1F2937' // Cinza escuro para textos e elementos neutros
+    text: '#1F2937' ,
+    blog: '#EDE9FE',
+    testimonials: '#DDD6FE',
+    active: '#6D28D9'
   },
   foto_perfil: '/images/psicologo_perfil.jpg',
   foto_geral: '/images/psicologo_geral.jpeg',
   features: {
-    blog: true, // Ativar/desativar blog
+    blog: false, // Ativar/desativar blog
     testimonials: true,
     faq: true,
     newsletter: false
@@ -106,5 +110,12 @@ export const psicologoTemplate: TemplateConfig = {
       question: 'Atende por convênio?',
       answer: 'Trabalho como particular, mas forneço recibo para reembolso junto ao convênio.'
     }
-  ]
+  ],
+  blog: {
+    enabled: false,
+    title: 'Artigos sobre Saúde Mental',
+    subtitle: 'Informações e dicas para o seu bem-estar emocional.',
+    openInNewPage: false,
+    categories: []
+  }
 }

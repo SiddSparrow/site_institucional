@@ -17,15 +17,12 @@ export default function FAQ() {
             Perguntas Frequentes
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {template.type === 'coach' && 'Tire suas dúvidas sobre o processo de coaching.'}
-            {template.type === 'barbeiro' && 'Respostas para as principais dúvidas.'}
-            {template.type === 'medico' && 'Informações importantes sobre consultas e atendimento.'}
-            {template.type === 'psicologo' && 'Tire suas dúvidas sobre o processo terapêutico.'}
+            {siteConfig.faq.text}
           </p>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4">
-          {template.faq.map((faq) => (
+          {template.faq.questions.map((faq) => (
             <div 
               key={faq.id}
               className="border border-gray-200 rounded-lg overflow-hidden"

@@ -4,10 +4,15 @@ import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import { siteConfig } from '@/lib/site-config'
+import { menu } from 'framer-motion/client'
+import { MenuItemBuilder } from 'sanity/structure'
+import Image from 'next/image'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-
+  function checkRoute(rota: string) {
+    return window.location.pathname.includes(rota)
+  }
   const menuItems = [
     { label: 'Início', href: '#home' },
     { label: 'Sobre', href: '#about' },
@@ -16,17 +21,45 @@ export default function Navbar() {
     { label: 'Contato', href: '#contact' },
   ]
 
+  if(siteConfig.features.blog) {
+    menuItems.splice(3, 0, { label: 'Blog', href: '#blog' })
+  }
+
+  /* if(checkRoute('artigos')) { isso é apenas caso queira usar rotas diferentes para o blog
+    menuItems.map(item => {
+      if(item.href === '#home') {
+        item.href = '/#home'
+      }else if(item.href === '#about') {
+        item.href = '/#about'
+      }else if(item.href === '#services') {
+        item.href = '/#services'
+      }else if(item.href === '#testimonials') {
+        item.href = '/#testimonials'
+      }else if(item.href === '#contact') {
+        item.href = '/#contact'
+      }
+    })
+  } */
+
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <Container>
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div 
+          {/* <div 
             className="text-xl font-bold"
             style={{ color: siteConfig.colors.primary }}
           >
             {siteConfig.name}
-          </div>
+          </div> */}
+          <Image
+            src={siteConfig.logo}
+            alt="Logo" 
+            width={70} //configurar manualmente conforme necessidade
+            height={100}
+            /* className="object-contain h-10 w-auto max-w-[150px]"  */// Classes adicionadas
+            priority
+          />
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">

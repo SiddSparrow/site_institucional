@@ -1,6 +1,9 @@
+'use client'
+
 import Container from '@/components/ui/Container'
 import { siteConfig } from '@/lib/site-config'
 import { Instagram, Facebook, Linkedin } from 'lucide-react'
+import useProcessTitle from '@/hooks/templateFunctions'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -12,7 +15,10 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">{siteConfig.name}</h3>
             <p className="text-gray-400">
-              {siteConfig.description}
+              {useProcessTitle(siteConfig.description, {
+                                                  defaultColor: '#96a5b9ff',
+                                                  spanColor: siteConfig.colors.accent
+                                              })}
             </p>
           </div>
 

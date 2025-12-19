@@ -1,9 +1,11 @@
+import { s } from 'framer-motion/client';
 import { LucideIcon } from 'lucide-react'
 
 export type TemplateType = 'medico' | 'psicologo' | 'barbeiro' | 'coach'
 
 export interface TemplateConfig {
   name: string
+  logo: string
   type: TemplateType
   colors: {
     primary: string
@@ -11,6 +13,9 @@ export interface TemplateConfig {
     accent: string
     background: string
     text: string//cor base para textos e elementos neutros
+    blog: string //cor de fundo da seção blog
+    testimonials: string //cor de fundo da seção depoimentos (opcional)
+    active: string //cor para estados ativos (opcional)
   }
   foto_perfil: string
   foto_geral: string
@@ -26,14 +31,37 @@ export interface TemplateConfig {
     ctaPrimary: string
     ctaSecondary: string
   }
-  services: ServiceTemplate[]
+  services: {
+    title: string
+    subtitle: string
+    services: ServiceTemplate[]
+  }
   about: {
     title: string
     description: string[]
     credentials: CredentialTemplate[]
   }
-  testimonials: TestimonialTemplate[]
-  faq: FAQTemplate[]
+  testimonials: {
+    title: string
+    subtitle: string
+    testimonials: TestimonialTemplate[]
+  }
+  faq: {
+    text: string
+    questions: FAQTemplate[]
+  }
+  blog: {
+    enabled: boolean,
+    title: string,
+    subtitle: string,
+    openInNewPage: boolean,
+    categories: string[]
+  }
+  cta: {
+    title: string,
+    subtitle: string
+    wppText: string
+  }
 }
 
 export interface ServiceTemplate {
@@ -50,11 +78,11 @@ export interface CredentialTemplate {
 }
 
 export interface TestimonialTemplate {
-  id: string
-  name: string
-  role: string
-  content: string
-  rating: number
+    id: string
+    name: string
+    role: string
+    content: string
+    rating: number 
 }
 
 export interface FAQTemplate {
@@ -81,4 +109,12 @@ export interface BlogCategory {
   name: string
   slug: string
   description?: string
+}
+
+export interface BlogConfig {
+  enabled: boolean
+  title: string
+  subtitle: string
+  openInNewPage: boolean
+  categories?: string[]
 }

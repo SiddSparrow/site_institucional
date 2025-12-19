@@ -16,19 +16,16 @@ export default function Services() {
         <FadeIn>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {template.type === 'barbeiro' ? 'Nossos Serviços' : 'Como Posso Ajudar'}
+              {siteConfig.services.title}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {template.type === 'medico' && 'Oferecemos atendimento especializado e humanizado.'}
-              {template.type === 'psicologo' && 'Serviços especializados para cuidar da sua saúde mental.'}
-              {template.type === 'barbeiro' && 'Experiência completa em cuidados masculinos.'}
-              {template.type === 'coach' && 'Programas personalizados para sua transformação.'}
+              {siteConfig.services.subtitle}
             </p>
           </div>
         </FadeIn>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {template.services.map((service, index) => {
+          {template.services.services.map((service, index) => {
             const IconComponent = getIcon(service.icon)
             
             return (

@@ -1,13 +1,15 @@
 import { SiteConfig } from '@/types'
 import { TemplateType } from '@/types/templates'
 import { getTemplate } from './templates'
+import { features } from 'process'
 
-export const CURRENT_TEMPLATE: TemplateType = 'psicologo' // Opções: 'medico' | 'psicologo' | 'barbeiro' | 'coach'
+export const CURRENT_TEMPLATE: TemplateType = 'medico' // Opções: 'medico' | 'psicologo' | 'barbeiro' | 'coach'
 
 const template = getTemplate(CURRENT_TEMPLATE)
 
 export const siteConfig: SiteConfig = {
   name: template.name,
+  logo: template.logo,
   description: template.hero.subtitle,
   phone: "(00) 00000-0000",
   email: "contato@exemplo.com",
@@ -18,7 +20,12 @@ export const siteConfig: SiteConfig = {
     linkedin: "https://linkedin.com/in/",
     whatsapp: "5500000000000",
   },
-  colors: template.colors
+  colors: template.colors,
+  features: template.features,
+  Testimonials: template.testimonials,
+  cta: template.cta,
+  faq: template.faq,
+  services: template.services
 }
 
 export { template }

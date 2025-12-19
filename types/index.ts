@@ -1,5 +1,9 @@
+
+import { title } from 'process';
+
 export interface SiteConfig {
   name: string
+  logo: string
   description: string
   phone: string
   email: string
@@ -16,6 +20,34 @@ export interface SiteConfig {
     accent?: string
     background?: string
     text: string
+    blog: string
+    testimonials : string
+    active: string
+  }
+  features: {
+    blog: boolean
+    faq: boolean
+    testimonials: boolean
+    newsletter: boolean
+  }
+  Testimonials:{
+    title: string
+    subtitle: string
+    testimonials: Testimonial[]
+  }
+  cta:{
+    title: string
+    subtitle: string
+    wppText: string
+  }
+  faq:{
+    text: string
+    questions: FAQ[]
+  }
+  services:{
+    title: string
+    subtitle: string
+    services: Service[]
   }
 }
 
@@ -32,4 +64,10 @@ export interface Testimonial {
   role: string
   content: string
   avatar?: string
+}
+
+export interface FAQ {
+  id: string
+  question: string
+  answer: string
 }
