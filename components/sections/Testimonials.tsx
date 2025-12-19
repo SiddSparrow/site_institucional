@@ -5,7 +5,7 @@ import { template, siteConfig } from '@/lib/site-config'
 
 export default function Testimonials() {
     return (
-        <section className="py-20" style={{ backgroundColor: `${siteConfig.colors.primary}10` }}>
+        <section id='testimonials' className="py-20" style={{ backgroundColor: `${siteConfig.colors.primary}10` }}>
             <Container>
                 <FadeIn>
                     <div className="text-center mb-16">

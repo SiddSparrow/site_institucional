@@ -2,6 +2,7 @@ import Container from '@/components/ui/Container'
 import FadeIn from '@/components/ui/FadeIn'
 import { template, siteConfig } from '@/lib/site-config'
 import * as LucideIcons from 'lucide-react'
+import Image from 'next/image'
 
 export default function About() {
   const getIcon = (iconName: string) => {
@@ -14,9 +15,25 @@ export default function About() {
       <Container>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <FadeIn direction="left">
-            <div className="relative h-[500px] bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-xl">
-              <div className="w-full h-full flex items-center justify-center text-gray-400">
-                {template.type === 'barbeiro' ? 'Foto da Barbearia' : 'Foto Profissional'}
+            {/* Container flexível */}
+            <div className="flex justify-center items-center min-h-[400px] md:min-h-[500px] bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-xl p-4">
+              {/* Imagem com largura máxima e altura automática */}
+              <div className="relative w-full max-w-md">
+                <div className="relative w-full h-auto">
+                  <Image 
+                    src={template.foto_perfil || '/images/placeholder.jpg'}
+                    alt="Foto Profissional"
+                    width={600}      // Largura desejada
+                    height={0}       // Altura será calculada automaticamente
+                    sizes="(max-width: 768px) 90vw, 40vw"
+                    className="w-full h-auto max-h-[500px] object-contain rounded-lg"
+                    priority
+                    style={{ 
+                      height: 'auto', // Mantém proporção
+                      objectFit: 'contain' // Não corta a imagem
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </FadeIn>

@@ -6,12 +6,21 @@ export const psicologoTemplate: TemplateConfig = {
   colors: {
     primary: '#7C3AED', // Roxo suave e profissional
     secondary: '#1E293B',
-    accent: '#A78BFA',
-    background: '#F5F3FF'
+    accent: '#2563EB',
+    background: '#F5F3FF',
+    text: '#1F2937' // Cinza escuro para textos e elementos neutros
+  },
+  foto_perfil: '/images/psicologo_perfil.jpg',
+  foto_geral: '/images/psicologo_geral.jpeg',
+  features: {
+    blog: true, // Ativar/desativar blog
+    testimonials: true,
+    faq: true,
+    newsletter: false
   },
   hero: {
     title: 'Cuidando da sua <span>saúde mental</span> com acolhimento',
-    subtitle: 'Psicoterapia baseada em evidências para ajudar você a viver melhor.',
+    subtitle: 'Psicoterapia baseada em evidências para ajudar <br> você a viver melhor.',
     ctaPrimary: 'Agendar Sessão',
     ctaSecondary: 'WhatsApp'
   },

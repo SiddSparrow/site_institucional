@@ -7,7 +7,16 @@ export const medicoTemplate: TemplateConfig = {
     primary: '#2563EB', // Azul médico profissional
     secondary: '#1E293B',
     accent: '#60A5FA',
-    background: '#EFF6FF'
+    background: '#EFF6FF',
+    text: '#374151' // Cinza escuro para textos e elementos neutros
+  },
+  foto_perfil: '/images/medico_perfil.jpg',
+  foto_geral: '/images/medico_geral.jpg',
+  features: {
+    blog: true, // Ativar/desativar blog
+    testimonials: true,
+    faq: true,
+    newsletter: false
   },
   hero: {
     title: 'Cuidando da sua saúde com <span>excelência</span> e <span>dedicação</span>',

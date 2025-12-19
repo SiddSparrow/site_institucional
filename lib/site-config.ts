@@ -2,7 +2,7 @@ import { SiteConfig } from '@/types'
 import { TemplateType } from '@/types/templates'
 import { getTemplate } from './templates'
 
-export const CURRENT_TEMPLATE: TemplateType = 'medico' // Opções: 'medico' | 'psicologo' | 'barbeiro' | 'coach'
+export const CURRENT_TEMPLATE: TemplateType = 'psicologo' // Opções: 'medico' | 'psicologo' | 'barbeiro' | 'coach'
 
 const template = getTemplate(CURRENT_TEMPLATE)
 

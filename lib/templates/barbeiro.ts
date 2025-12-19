@@ -7,7 +7,16 @@ export const barbeiroTemplate: TemplateConfig = {
     primary: '#D97706', // Âmbar/dourado mais sofisticado
     secondary: '#18181B',
     accent: '#FBBF24',
-    background: '#FFFBEB'
+    background: '#FFFBEB',
+    text: '#27272A' // Cinza escuro para textos e elementos neutros
+  },
+  foto_perfil: '/images/barbeiro_perfil.jpg',
+  foto_geral: '/images/barbeiro_geral.jpg',
+  features: {
+    blog: true, // Ativar/desativar blog
+    testimonials: true,
+    faq: true,
+    newsletter: false
   },
   hero: {
     title: 'Estilo e <span>tradição</span> em cada corte',

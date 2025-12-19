@@ -7,7 +7,16 @@ export const coachTemplate: TemplateConfig = {
     primary: '#DC2626', // Vermelho energético e motivacional
     secondary: '#1E293B',
     accent: '#F87171',
-    background: '#FEF2F2'
+    background: '#FEF2F2',
+    text: '#374151' // Cinza escuro para textos e elementos neutros
+  },
+  foto_perfil: '/images/coach_perfil.jpg',
+  foto_geral: '/images/coach_geral.jpg',
+  features: {
+    blog: true, // Ativar/desativar blog
+    testimonials: true,
+    faq: true,
+    newsletter: false
   },
   hero: {
     title: 'Transforme sua <span>vida</span> e alcance seus <span>objetivos</span>',
