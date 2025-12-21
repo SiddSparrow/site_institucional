@@ -24,6 +24,7 @@ export const psicologoTemplate: TemplateConfig = {
   },
   foto_perfil: '/images/psicologo_perfil.jpg',
   foto_geral: '/images/psicologo_geral.png',
+  foto_faq:'/images/clinica.png',
   features: {
     blog: false, // Ativar/desativar blog
     testimonials: true,

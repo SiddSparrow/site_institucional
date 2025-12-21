@@ -28,6 +28,7 @@ export const barbeiroTemplate: TemplateConfig = {
   },
   foto_perfil: '/images/barbeiro_perfil.jpg',
   foto_geral: '/images/barbeiro_geral.jpg',
+  foto_faq:'/images/barbearia.jpg',
   features: {
     blog: true, // Ativar/desativar blog
     testimonials: true,

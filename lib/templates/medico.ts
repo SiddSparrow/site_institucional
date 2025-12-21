@@ -30,6 +30,7 @@ export const medicoTemplate: TemplateConfig = {
   },
   foto_perfil: '/images/medico_perfil.png',
   foto_geral: '/images/medico_geral.jpg',
+  foto_faq:'/images/clinica.png',
   features: {
     blog: true, // Ativar/desativar blog
     testimonials: true,

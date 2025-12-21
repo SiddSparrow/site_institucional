@@ -47,7 +47,7 @@ const FAQ_CONFIG = {
   showSideImage: true, // HABILITA/DESABILITA IMAGEM
   
   // URL da imagem (deixe vazio para usar placeholder)
-  sideImageUrl: '/images/clinica.png', // Coloque o caminho da sua imagem aqui
+  sideImageUrl: template.foto_faq, // Coloque o caminho da sua imagem aqui
   
   // Texto alternativo da imagem
   sideImageAlt: 'Contato',

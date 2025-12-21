@@ -27,6 +27,7 @@ export interface TemplateConfig {
   }
   foto_perfil: string
   foto_geral: string
+  foto_faq: string
   features: {
     blog: boolean, // Ativar/desativar blog
     testimonials: boolean,
