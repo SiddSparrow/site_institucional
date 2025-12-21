@@ -6,6 +6,9 @@ import { getWhatsAppLink } from '@/lib/utils'
 import { siteConfig, template } from '@/lib/site-config'
 
 export default function CTA() {
+
+  if (!siteConfig.features.cta) return null
+
   const handleClick = () => {
     window.open(
       getWhatsAppLink(
@@ -18,14 +21,15 @@ export default function CTA() {
 
   return (
     <section 
-      className="py-20 text-white"
+      className="py-20"
       style={{ 
-        background: `linear-gradient(to bottom right, ${siteConfig.colors.primary}, ${siteConfig.colors.secondary})`
+        background: siteConfig.colors.cta
+        /* `linear-gradient(to bottom right, ${siteConfig.colors.primary}, ${siteConfig.colors.secondary}) `*/
       }}
     >
       <Container>
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-bold" style={{color:siteConfig.colors.text}}>
             {siteConfig.cta.title}
           </h2>
           <p className="text-xl opacity-90">
@@ -34,8 +38,8 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button 
               size="lg"
-              className="bg-white hover:bg-gray-100 transition-colors"
-              style={{ color: siteConfig.colors.primary }}
+              className="bg-white hover:bg-gray-100 transition-colors transform"
+              style={{ color: 'white', background:siteConfig.colors.primary }}
               onClick={handleClick}
             >
               {template.hero.ctaPrimary}

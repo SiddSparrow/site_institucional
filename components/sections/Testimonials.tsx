@@ -13,8 +13,8 @@ export default function Testimonials() {
 
     const testimonials = template.testimonials.testimonials
 
-    const autoPlay = false
-    const autoPlayInterval = 5000
+    const autoPlay = true
+    const autoPlayInterval = 4000
 
     const nextSlide = () => {
         setDirection(1)
@@ -78,11 +78,11 @@ export default function Testimonials() {
                 <div className="text-center mb-16">
                     <h2
                         className="text-3xl md:text-4xl font-bold mb-4"
-                        style={{ color: 'black'/* siteConfig.colors.text */ }}
+                        style={{ color:  siteConfig.colors.text  }}
                     >
                         {siteConfig.Testimonials.title}
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto" style={{ color:  siteConfig.colors.text  }}>
                         {siteConfig.Testimonials.subtitle}
                     </p>
                 </div>

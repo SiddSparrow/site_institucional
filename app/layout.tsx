@@ -1,9 +1,14 @@
+// layout.tsx - Versão simplificada
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | ${siteConfig.description}`,
@@ -29,7 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body className={inter.className} style={{backgroundColor:'transparent'}}>{children}</body>
+      <body className={poppins.className} style={{backgroundColor:'transparent'}}>
+        {children}
+      </body>
     </html>
   );
 }

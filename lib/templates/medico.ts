@@ -6,22 +6,45 @@ export const medicoTemplate: TemplateConfig = {
   logo: '/images/medico_logo.png',
   type: 'medico',
   colors: {
-    primary: '#2563EB', // Azul médico profissional
-    secondary: '#1E293B',
-    accent: '#60A5FA',
-    background: '#EFF6FF',
-    text: ''/* '#374151' */,
-    blog: '#DBEAFE',
-    testimonials: '#EFF6FF',
-    active: '#1D4ED8'
+    // Cores de seção (tons de azul e verde médicos)
+
+    //navbar: '#1E40AF', // Azul escuro (confiança, profissionalismo)
+    /* services: '#3B82F6', // Azul médio (calma, confiança)
+    about: '#0EA5E9', // Azul céu (esperança, clareza)
+    testimonials: '#1E40AF', // Azul escuro (estabilidade)
+    faq: '#0EA5E9', // Azul céu
+    cta: '#10B981', // Verde esmeralda (ação, saúde)
+    contact: '#3B82F6', // Azul médio
+    footer: '#1E3A8A', // Azul marinho (autoridade) */
+
+    navbar:'#0EA5E9',
+    services: "#d2d2d2", // Azul médio (calma, confiança)
+    about: '#f3f3f3', // Azul céu (esperança, clareza)
+    testimonials: '#f3f3f3', // Azul escuro (estabilidade)
+    faq: '#d2d2d2', // Azul céu
+    cta: '#f3f3f3', // Verde esmeralda (ação, saúde)
+    contact: '#f3f3f3', // Azul médio
+    footer: '#f3f3f3', // Azul marinho (autoridade)
+    
+    // Cores principais
+    primary: '#b88b4a', // Azul escuro principal
+    secondary: '#4B5563', // Cinza para textos secundários
+    accent: 'black', // Azul muito claro para fundos (cor de destaque)
+    background: '#FFFFFF', // Branco puro (limpeza, esterilidade)
+    text: 'black', // Cinza muito escuro para textos principais
+    blog: '#d2d2d2', // Cinza azulado muito claro para fundo do blog
+    
+    // Cores de estado
+    active: '#10B981', // Verde esmeralda para elementos ativos
   },
-  foto_perfil: '/images/medico_perfil.jpg',
+  foto_perfil: '/images/medico_perfil.png',
   foto_geral: '/images/medico_geral.jpg',
   features: {
     blog: true, // Ativar/desativar blog
     testimonials: true,
     faq: true,
-    newsletter: false
+    newsletter: false,
+    cta:false
   },
   hero: {
     title: 'Cuidando da sua saúde com <span>excelência</span> e <span>dedicação</span>',
@@ -125,6 +148,16 @@ export const medicoTemplate: TemplateConfig = {
         id: '4',
         question: 'Preciso levar exames anteriores?',
         answer: 'Sim, é importante trazer todos os exames e documentos médicos anteriores para melhor avaliação.'
+      },
+      {
+        id: '5',
+        question: 'Oferece telemedicina?',
+        answer: 'Sim, ofereço atendimento por telemedicina para consultas de retorno e acompanhamento, conforme regulamentação do CFM. A primeira consulta deve ser presencial.'
+      },
+      {
+        id: '6',
+        question: 'Qual o prazo para liberação de atestados e receitas?',
+        answer: 'Atestados e receitas são liberados imediatamente após a consulta, tanto na modalidade presencial quanto online. Receitas digitais são enviadas por e-mail ou WhatsApp.'
       }
     ]
   }

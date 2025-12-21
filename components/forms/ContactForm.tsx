@@ -98,8 +98,9 @@ export default function ContactForm() {
             {...register('name', { required: 'Nome é obrigatório' })}
             type="text"
             id="name"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border text-gray-950 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Seu nome"
+            
           />
           {errors.name && (
             <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
@@ -120,8 +121,9 @@ export default function ContactForm() {
             })}
             type="email"
             id="email"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border text-gray-950 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="seu@email.com"
+            
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -136,7 +138,7 @@ export default function ContactForm() {
             {...register('phone', { required: 'Telefone é obrigatório' })}
             type="tel"
             id="phone"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border text-gray-950 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="(00) 00000-0000"
           />
           {errors.phone && (
@@ -152,8 +154,9 @@ export default function ContactForm() {
             {...register('message', { required: 'Mensagem é obrigatória' })}
             id="message"
             rows={4}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border text-gray-950 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Como posso ajudar?"
+            
           />
           {errors.message && (
             <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
@@ -165,6 +168,7 @@ export default function ContactForm() {
           size="lg" 
           className="w-full"
           disabled={isSubmitting}
+          style={{backgroundColor:siteConfig.colors.primary}}
         >
           {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
         </Button>

@@ -11,12 +11,12 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-20" style={{background:siteConfig.colors.about}}>
       <Container>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <FadeIn direction="left">
             {/* Container flexível */}
-            <div className="flex justify-center items-center min-h-[400px] md:min-h-[500px] bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl overflow-hidden shadow-xl p-4">
+
               {/* Imagem com largura máxima e altura automática */}
               <div className="relative w-full max-w-md">
                 <div className="relative w-full h-auto">
@@ -33,21 +33,21 @@ export default function About() {
                       objectFit: 'contain' // Não corta a imagem
                     }}
                   />
-                </div>
+                
               </div>
             </div>
           </FadeIn>
 
           <div className="space-y-6">
             <FadeIn delay={0.2}>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900" style={{color:siteConfig.colors.text}}>
                 {template.about.title}
               </h2>
             </FadeIn>
             
             {template.about.description.map((paragraph, index) => (
               <FadeIn key={index} delay={0.3 + (index * 0.1)}>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-gray-600" style={{color:siteConfig.colors.text}}>
                   {paragraph}
                 </p>
               </FadeIn>
@@ -66,11 +66,11 @@ export default function About() {
                       >
                         <IconComponent 
                           className="w-6 h-6" 
-                          style={{ color: siteConfig.colors.primary }}
+                          style={{ color: siteConfig.colors.text }}
                         />
                       </div>
-                      <div className="font-bold text-gray-900">{credential.title}</div>
-                      <div className="text-sm text-gray-600">{credential.description}</div>
+                      <div className="font-bold text-gray-900" style={{color:siteConfig.colors.text}}>{credential.title}</div>
+                      <div className="text-sm text-gray-600" style={{color:siteConfig.colors.text}}>{credential.description}</div>
                     </div>
                   </FadeIn>
                 )

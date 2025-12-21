@@ -13,9 +13,16 @@ export interface SiteConfig {
     whatsapp?: string
   }
   colors: {
+    navbar: string
+    services: string
+    about: string
+    faq: string
+    cta: string
+    contact: string
+    footer: string
     primary: string
     secondary: string
-    accent?: string
+    accent: string
     background?: string
     text: string
     blog: string
@@ -27,6 +34,7 @@ export interface SiteConfig {
     faq: boolean
     testimonials: boolean
     newsletter: boolean
+    cta:boolean
   }
   Testimonials:{
     title: string

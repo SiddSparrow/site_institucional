@@ -1,21 +1,29 @@
 import { TemplateConfig } from '@/types/templates'
 
 export const psicologoTemplate: TemplateConfig = {
-  name: '[Nome]',
-  logo: '/images/psicologo_logo.png',
+  name: 'Júlia Azevedo',
+  logo: '',
   type: 'psicologo',
   colors: {
-    primary: '#7C3AED', // Roxo suave e profissional
-    secondary: '#1E293B',
-    accent: '#2563EB',
-    background: '#F5F3FF',
-    text: '#1F2937',
+    navbar: '#8c866b',
+    services: '#8c866b',
+    about: 'rgb(173 167 141)',
+    testimonials: '#8c866b',
+    faq: 'rgb(173 167 141)',
+    cta: '#8c866b',
+    contact: 'rgb(173 167 141)',
+    footer: '#8c866b',
+    primary: '#6B9AC4', // Roxo suave e profissional
+    secondary: '#4A4A4A',
+    accent: '#e4eee9ff',
+    background: '#F5F3EF',
+    text: 'white',
     blog: '#EDE9FE',
-    testimonials: '#F5F3FF',
-    active: '#6D28D9'
+    
+    active: '#8FB9A8'
   },
   foto_perfil: '/images/psicologo_perfil.jpg',
-  foto_geral: '/images/psicologo_geral.jpeg',
+  foto_geral: '/images/psicologo_geral.png',
   features: {
     blog: false, // Ativar/desativar blog
     testimonials: true,

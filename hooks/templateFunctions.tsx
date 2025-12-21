@@ -1,7 +1,14 @@
 'use client'
 
 import { siteConfig, template } from '@/lib/site-config'
+import { getWhatsAppLink } from '@/lib/utils'
 
+export  const useHandleWhatsAppClick = () => {
+        window.open(
+            getWhatsAppLink(siteConfig.social.whatsapp || '', 'Olá! Gostaria de mais informações.'),
+            '_blank'
+        )
+    }
 export const useProcessTitle = (
         title: string,
         options?: {

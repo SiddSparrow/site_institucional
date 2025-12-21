@@ -6,7 +6,8 @@ import FadeIn from '@/components/ui/FadeIn'
 import { siteConfig, template } from '@/lib/site-config'
 import { getWhatsAppLink } from '@/lib/utils'
 import Image from 'next/image'
-import useProcessTitle from '@/hooks/templateFunctions'
+import {useProcessTitle, useHandleWhatsAppClick} from '@/hooks/templateFunctions'
+
 
 export default function Hero() {
     const [isMobile, setIsMobile] = useState(false)
@@ -24,13 +25,6 @@ export default function Hero() {
 
     const handleAgendarClick = () => {
         window.location.href = '#contact'
-    }
-
-    const handleWhatsAppClick = () => {
-        window.open(
-            getWhatsAppLink(siteConfig.social.whatsapp || '', 'Olá! Gostaria de mais informações.'),
-            '_blank'
-        )
     }
 
 
@@ -52,8 +46,10 @@ export default function Hero() {
                     
              
                 {/* Overlay para melhor contraste do texto */}
+                
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                
             </div>
             <Container className="relative z-10">
                 <div className="grid md:grid-cols-2 gap-12 items-center min-h-[80vh]">
@@ -81,9 +77,9 @@ export default function Hero() {
                                 <Button
                                     size="lg"
                                     /* onClick={handleAgendarClick} */
-                                    onClick={handleWhatsAppClick}
+                                    onClick={useHandleWhatsAppClick}
                                     style={{ backgroundColor: siteConfig.colors.primary }}
-                                    className="hover:opacity-90 transition-opacity transform hover:scale-105 duration-200 shadow-lg"
+                                    className="hover:opacity-90 transition transform hover:scale-105 duration-200 shadow-lg"
                                 >
                                     {template.hero.ctaPrimary}
                                 </Button>
@@ -93,6 +89,7 @@ export default function Hero() {
                     </div>
                     <div></div>
                 </div>
+                
             </Container>
         </section>
     )

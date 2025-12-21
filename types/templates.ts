@@ -1,5 +1,6 @@
 import { s } from 'framer-motion/client';
 import { LucideIcon } from 'lucide-react'
+import { StringFormNode } from 'sanity';
 
 export type TemplateType = 'medico' | 'psicologo' | 'barbeiro' | 'coach'
 
@@ -8,6 +9,13 @@ export interface TemplateConfig {
   logo: string
   type: TemplateType
   colors: {
+    navbar: string
+    services: string
+    about: string
+    faq: string
+    cta: string
+    contact: string
+    footer: string
     primary: string
     secondary: string
     accent: string
@@ -23,7 +31,8 @@ export interface TemplateConfig {
     blog: boolean, // Ativar/desativar blog
     testimonials: boolean,
     faq: boolean,
-    newsletter: boolean
+    newsletter: boolean,
+    cta:boolean
   },
   hero: {
     title: string
