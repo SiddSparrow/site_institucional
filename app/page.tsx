@@ -12,6 +12,7 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton'
 import Blog from '@/components/sections/Blog'
 import { siteConfig, template } from '@/lib/site-config'
 import SectionDivider from '@/components/ui/SectionDivider'
+import PhotoGallery from '@/components/sections/PhotoGallery'
 
 export default async function Home() {
   let posts = []
@@ -33,7 +34,7 @@ export default async function Home() {
       {/* <SectionDivider type="wave" toColor="#F9FAFB" fromColor='#F9FAFB' background='white'/> */}
       <About />
       {/* <SectionDivider type="wave" toColor='black' fromColor='transparent' background='#F9FAFB'/> */}
-      
+      {/* <PhotoGallery/> */}
       {/* Use && para renderização condicional no JSX */}
       {siteConfig.features.blog && (
         <Blog 
