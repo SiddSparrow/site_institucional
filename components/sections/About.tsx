@@ -11,29 +11,27 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20" style={{background:siteConfig.colors.about}}>
+    <section id="about" className="py-20 overflow-hidden" style={{background:siteConfig.colors.about}}>
       <Container>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <FadeIn direction="left">
             {/* Container flexível */}
-
-              {/* Imagem com largura máxima e altura automática */}
-              <div className="relative w-full max-w-md">
-                <div className="relative w-full h-auto">
-                  <Image 
-                    src={template.foto_perfil || '/images/placeholder.jpg'}
-                    alt="Foto Profissional"
-                    width={600}      // Largura desejada
-                    height={0}       // Altura será calculada automaticamente
-                    sizes="(max-width: 768px) 90vw, 40vw"
-                    className="w-full h-auto max-h-[500px] object-contain rounded-lg"
-                    priority
-                    style={{ 
-                      height: 'auto', // Mantém proporção
-                      objectFit: 'contain' // Não corta a imagem
-                    }}
-                  />
-                
+            {/* Imagem com largura máxima e altura automática */}
+            <div className="relative w-full max-w-md overflow-hidden">
+              <div className="relative w-full h-auto">
+                <Image 
+                  src={template.foto_perfil || '/images/placeholder.jpg'}
+                  alt="Foto Profissional"
+                  width={600}      // Largura desejada
+                  height={0}       // Altura será calculada automaticamente
+                  sizes="(max-width: 768px) 90vw, 40vw"
+                  className="w-full h-auto max-h-[500px] object-contain rounded-lg"
+                  priority
+                  style={{ 
+                    height: 'auto', // Mantém proporção
+                    objectFit: 'contain' // Não corta a imagem
+                  }}
+                />
               </div>
             </div>
           </FadeIn>
