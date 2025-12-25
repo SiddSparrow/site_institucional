@@ -6,8 +6,7 @@ import Container from '@/components/ui/Container'
 import { siteConfig, template } from '@/lib/site-config'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import Button from '../ui/Button'
-import { useProcessTitle, useHandleWhatsAppClick } from '@/hooks/templateFunctions'
+import { useHandleWhatsAppClick } from '@/hooks/templateFunctions'
 
 // ========== TIPOS ==========
 type NavbarStyle = 'solid' | 'transparent' | 'glass' | 'gradient'
@@ -17,7 +16,7 @@ type ShadowLevel = 'none' | 'sm' | 'md' | 'lg'
 // ========== CONFIGURAÇÕES DE ESTILO DA NAVBAR ==========
 const NAVBAR_CONFIG = {
   // Estilo principal: 'solid' | 'transparent' | 'glass' | 'gradient'
-  style: 'glass' as NavbarStyle, // MUDE AQUI!
+  style: 'transparent' as NavbarStyle,
 
   // Blur (apenas para 'transparent' e 'glass'): 'none' | 'sm' | 'md' | 'lg'
   blur: 'md' as BlurLevel,
@@ -32,7 +31,7 @@ const NAVBAR_CONFIG = {
   bottomBorder: true,
 
   // Animação ao fazer scroll
-  shrinkOnScroll: true, // Reduz altura ao rolar
+  shrinkOnScroll: true,
 
   // Adicionar backdrop quando scroll > 0
   changeOnScroll: true
@@ -45,9 +44,9 @@ export default function Navbar() {
 
   const menuItems = [
     { label: 'Início', href: '#home' },
-    { label: 'Sobre', href: '#about' },
+    /* { label: 'Sobre', href: '#about' }, */
     { label: 'Serviços', href: '#services' },
-    { label: 'Depoimentos', href: '#testimonials' },
+    /* { label: 'Depoimentos', href: '#testimonials' }, */
     { label: 'Contato', href: '#contact' },
   ]
 
@@ -74,6 +73,7 @@ export default function Navbar() {
     let styles: React.CSSProperties = {}
     styles.position = 'fixed'
     styles.width = '100%'
+    
     switch (activeStyle) {
       case 'solid':
         styles.backgroundColor = siteConfig.colors.navbar
@@ -97,7 +97,8 @@ export default function Navbar() {
         styles.background = `linear-gradient(135deg, ${siteConfig.colors.navbar} 0%, ${siteConfig.colors.primary}20 100%)`
         break
     }
-
+    
+    styles.backgroundColor = 'transparent'
     return styles
   }
 
@@ -140,7 +141,7 @@ export default function Navbar() {
               <Image
                 src={siteConfig.logo}
                 alt="Logo"
-                width={70}
+                width={130}
                 height={100}
                 className={`transition-all duration-300 ${NAVBAR_CONFIG.shrinkOnScroll && scrolled ? 'scale-90' : 'scale-100'}`}
                 priority
@@ -149,13 +150,13 @@ export default function Navbar() {
           )}
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-24">
             {menuItems.map((item, index) => (
               <motion.a
                 key={item.href}
                 href={item.href}
                 className="text-gray-700 transition-all duration-200 relative group"
-                style={{ color: siteConfig.colors.accent }}
+                style={{ color: '#cecdcdff' }}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
@@ -163,7 +164,7 @@ export default function Navbar() {
                   e.currentTarget.style.color = siteConfig.colors.primary
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = siteConfig.colors.accent
+                  e.currentTarget.style.color = '#cecdcdff'
                 }}
               >
                 {item.label}
@@ -173,21 +174,57 @@ export default function Navbar() {
                 />
               </motion.a>
             ))}
-            <div className="flex flex-col sm:flex-row gap-4"></div>
-
           </div>
-          <Button
-            
-            /* onClick={handleAgendarClick} */
+          
+          {/* CTA Button - Desktop - Elegant Glass Style */}
+          <motion.button
             onClick={useHandleWhatsAppClick}
-            style={{ backgroundColor: siteConfig.colors.primary }}
-            className="hover:opacity-90 transition transform hover:scale-105 duration-200 shadow-lg h-3/4"
+            className="hidden md:flex items-center  gap-2 px-6 py-2.5 rounded-full backdrop-blur-md transition-all duration-300 group relative overflow-hidden"
+            style={{ 
+              backgroundColor: `${siteConfig.colors.primary}10`,
+              border: `1.5px solid ${siteConfig.colors.primary}30`,
+              color: '#cecdcdff'
+            }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
+            whileHover={{ 
+              scale: 1.05,
+              borderColor: `${siteConfig.colors.primary}60`
+            }}
+            whileTap={{ scale: 0.95 }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = `${siteConfig.colors.primary}20`
+              e.currentTarget.style.boxShadow = `0 8px 20px ${siteConfig.colors.primary}25`
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = `${siteConfig.colors.primary}10`
+              e.currentTarget.style.boxShadow = 'none'
+            }}
           >
-            {template.hero.ctaPrimary}
-          </Button>
+            {/* Background gradient on hover */}
+            <span 
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{
+                background: `radial-gradient(circle at center, ${siteConfig.colors.primary}15 0%, transparent 70%)`
+              }}
+            />
+            
+            <span className="relative font-medium text-sm tracking-wide">
+              {template.hero.ctaPrimary}
+            </span>
+            
+            <svg 
+              className="relative w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </motion.button>
 
           {/* Mobile Menu Button */}
-
           <button
             className="md:hidden transition-transform duration-200 hover:scale-110"
             onClick={() => setIsOpen(!isOpen)}
@@ -237,6 +274,35 @@ export default function Navbar() {
                     {item.label}
                   </motion.a>
                 ))}
+                
+                {/* CTA Button - Mobile */}
+                <motion.button
+                  onClick={() => {
+                    useHandleWhatsAppClick()
+                    setIsOpen(false)
+                  }}
+                  className="w-full mt-4 flex items-center justify-center gap-2 px-6 py-3 rounded-full backdrop-blur-md transition-all duration-300"
+                  style={{ 
+                    backgroundColor: `${siteConfig.colors.primary}15`,
+                    border: `1.5px solid ${siteConfig.colors.primary}30`,
+                    color: siteConfig.colors.primary
+                  }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2, delay: menuItems.length * 0.05 }}
+                >
+                  <span className="font-medium text-sm tracking-wide">
+                    {template.hero.ctaPrimary}
+                  </span>
+                  <svg 
+                    className="w-4 h-4" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </motion.button>
               </div>
             </motion.div>
           )}

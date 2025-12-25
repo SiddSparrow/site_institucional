@@ -6,9 +6,9 @@ import Location from '../ui/Location'
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20" style={{backgroundColor: siteConfig.colors.contact}}>
+    <section id="contact" /* className="py-20" */ style={{backgroundColor: siteConfig.colors.contact}}>
       <Container>
-        <Location
+        {/* <Location
           address="Av. Paulista, 1578"
           city="São Paulo - SP"
           latitude={-23.5614}
@@ -16,7 +16,7 @@ export default function Contact() {
           placeName="MASP"
           mapStyle='roadmap'
           layout='overlay'
-          />
+          /> */}
           
           <div style={{margin:'2rem'}}></div>
         <ContactForm />

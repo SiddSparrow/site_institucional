@@ -33,8 +33,8 @@ const CONTACT_CONFIG = {
   // ===== INFORMAÇÕES DE CONTATO =====
   showContactInfo: true,
   showPhone: true,
-  showEmail: true,
-  showAddress: true,
+  showEmail: false,
+  showAddress: false,
   
   // ===== TEXTOS =====
   sectionTitle: 'Entre em Contato',
@@ -121,7 +121,7 @@ export default function ContactForm() {
 
   const getLabelClasses = () => {
     const isDark = ['modern-dark', 'split-image'].includes(CONTACT_CONFIG.style)
-    return `block text-sm font-medium mb-2 ${isDark ? 'text-white' : 'text-gray-700'}`
+    return `block text-sm font-medium mb-2 ${isDark ? 'text-white' : 'text-gray-400'}`
   }
 
   const getButtonClasses = () => {
@@ -266,7 +266,7 @@ export default function ContactForm() {
   // Layout Modern Dark (Estilo Imagem 1)
   if (CONTACT_CONFIG.style === 'modern-dark') {
     return (
-      <section className="py-20 bg-gray-900" style={{background:'#161616'}}>
+      <section className="py-20 bg-gray-900" >
         <Container>
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
@@ -371,10 +371,10 @@ export default function ContactForm() {
     <section className="py-20" style={{ backgroundColor: siteConfig.colors.contact }}>
       <Container>
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: siteConfig.colors.text }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-200" >
             {CONTACT_CONFIG.sectionTitle}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto" style={{ color: siteConfig.colors.text }}>
+          <p className="text-lg text-blue-200 max-w-2xl mx-auto" >
             {CONTACT_CONFIG.sectionSubtitle}
           </p>
         </div>
@@ -384,10 +384,10 @@ export default function ContactForm() {
           {CONTACT_CONFIG.showContactInfo && (
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4" style={{ color: siteConfig.colors.text }}>
+                <h3 className="text-2xl font-bold text-blue-200 mb-4" >
                   Informações de Contato
                 </h3>
-                <p className="text-gray-600" style={{ color: siteConfig.colors.text }}>
+                <p className="text-blue-200" >
                   Estamos aqui para ajudar. Entre em contato!
                 </p>
               </div>
@@ -399,11 +399,11 @@ export default function ContactForm() {
                       className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: `${siteConfig.colors.primary}20` }}
                     >
-                      <Phone className="w-6 h-6" style={{ color: siteConfig.colors.primary }} />
+                      <Phone className="w-6 h-6 text-blue-200"/>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900" style={{ color: siteConfig.colors.text }}>Telefone</div>
-                      <div className="text-gray-600">{siteConfig.phone}</div>
+                      <div className="font-semibold text-blue-200">Telefone</div>
+                      <div className="text-blue-200">{siteConfig.phone}</div>
                     </div>
                   </div>
                 )}
@@ -411,14 +411,14 @@ export default function ContactForm() {
                 {CONTACT_CONFIG.showEmail && (
                   <div className="flex items-start gap-4">
                     <div 
-                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 text-blue-200"
                       style={{ backgroundColor: `${siteConfig.colors.primary}20` }}
                     >
-                      <Mail className="w-6 h-6" style={{ color: siteConfig.colors.primary }} />
+                      <Mail className="w-6 h-6 text-blue-200" />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900" style={{ color: siteConfig.colors.text }}>Email</div>
-                      <div className="text-gray-600">{siteConfig.email}</div>
+                      <div className="font-semibold text-blue-200">Email</div>
+                      <div className="text-blue-200">{siteConfig.email}</div>
                     </div>
                   </div>
                 )}
@@ -426,14 +426,14 @@ export default function ContactForm() {
                 {CONTACT_CONFIG.showAddress && (
                   <div className="flex items-start gap-4">
                     <div 
-                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 text-blue-200"
                       style={{ backgroundColor: `${siteConfig.colors.primary}20` }}
                     >
-                      <MapPin className="w-6 h-6" style={{ color: siteConfig.colors.primary }} />
+                      <MapPin className="w-6 h-6 text-blue-200"/>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900" style={{ color: siteConfig.colors.text }}>Localização</div>
-                      <div className="text-gray-600">{siteConfig.address}</div>
+                      <div className="font-semibold text-blue-200" >Localização</div>
+                      <div className="text-blue-200">{siteConfig.address}</div>
                     </div>
                   </div>
                 )}
@@ -450,8 +450,9 @@ export default function ContactForm() {
               <input
                 {...register('name', { required: 'Nome é obrigatório' })}
                 type="text"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-current focus:border-transparent text-gray-950"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-current focus:border-transparent text-blue-200 placeholder-gray-400"
                 placeholder={p.name}
+                style={{backgroundColor:'#352e58'}}
               />
               {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
             </div>
@@ -469,8 +470,9 @@ export default function ContactForm() {
                   }
                 })}
                 type="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-current focus:border-transparent text-gray-950"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-current focus:border-transparent text-blue-200 placeholder-gray-400"
                 placeholder={p.email}
+                style={{backgroundColor:'#352e58'}}
               />
               {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
             </div>
@@ -482,8 +484,9 @@ export default function ContactForm() {
               <input
                 {...register('phone', { required: 'Telefone é obrigatório' })}
                 type="tel"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-current focus:border-transparent text-gray-950"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-current focus:border-transparent text-blue-200 placeholder-gray-400"
                 placeholder={p.phone}
+                style={{backgroundColor:'#352e58'}}
               />
               {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>}
             </div>
@@ -496,8 +499,9 @@ export default function ContactForm() {
                 <textarea
                   {...register('message', { required: 'Mensagem é obrigatória' })}
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-current focus:border-transparent text-gray-950"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-current focus:border-transparent text-blue-200 placeholder-gray-400"
                   placeholder={p.message}
+                  style={{backgroundColor:'#352e58'}}
                 />
                 {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
               </div>
@@ -506,9 +510,9 @@ export default function ContactForm() {
             <Button 
               type="submit" 
               size="lg" 
-              className={getButtonClasses()}
+              className={getButtonClasses()+` bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600`}
               disabled={isSubmitting}
-              style={{ backgroundColor: siteConfig.colors.primary }}
+              style={{ backgroundColor: siteConfig.colors.primary, width:'100%' }}
             >
               {isSubmitting ? 'Enviando...' : CONTACT_CONFIG.submitButtonText}
             </Button>

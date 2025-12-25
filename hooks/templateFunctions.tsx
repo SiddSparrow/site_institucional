@@ -5,7 +5,7 @@ import { getWhatsAppLink } from '@/lib/utils'
 
 export  const useHandleWhatsAppClick = () => {
         window.open(
-            getWhatsAppLink(siteConfig.social.whatsapp || '', 'Olá! Gostaria de mais informações.'),
+            getWhatsAppLink(siteConfig.social.whatsapp || '', 'Olá! Gostaria de uma landing page!.'),
             '_blank'
         )
     }

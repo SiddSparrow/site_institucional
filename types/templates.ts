@@ -26,6 +26,9 @@ export interface TemplateConfig {
     testimonials: string //cor de fundo da seção depoimentos (opcional)
     active: string //cor para estados ativos (opcional)
   }
+  social:{
+    whatsapp:string
+  }
   foto_perfil: string
   foto_geral: string
   foto_faq: string

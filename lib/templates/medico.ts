@@ -2,8 +2,8 @@ import { TemplateConfig } from '@/types/templates'
 import { title } from 'process'
 
 export const medicoTemplate: TemplateConfig = {
-  name: 'Dr. João',
-  logo: '/images/medico_logo.png',
+  name: 'WebExpress',
+  logo: '/images/logo_2.png',
   type: 'medico',
   colors: {
 
@@ -28,11 +28,14 @@ export const medicoTemplate: TemplateConfig = {
     // Cores de estado
     active: '#10B981', 
   },
+  social:{
+    whatsapp:'5521985551290',
+  },
   foto_perfil: '/images/medico_perfil.png',
   foto_geral: '/images/medico_geral.jpg',
   foto_faq:'/images/clinica.png',
   features: {
-    blog: true, // Ativar/desativar blog
+    blog: false, // Ativar/desativar blog
     testimonials: true,
     faq: true,
     newsletter: false,
@@ -42,7 +45,7 @@ export const medicoTemplate: TemplateConfig = {
   hero: {
     title: 'Cuidando da sua saúde com <span>excelência</span> e <span>dedicação</span>',
     subtitle: 'Atendimento médico especializado com foco no seu bem-estar e qualidade de vida.',
-    ctaPrimary: 'Agendar Consulta',
+    ctaPrimary: 'Quero minha Página!',
     ctaSecondary: 'WhatsApp'
   },
   services: {
@@ -156,7 +159,7 @@ export const medicoTemplate: TemplateConfig = {
   }
   ,
   blog: {
-    enabled: true,
+    enabled: false,
     title: 'Artigos sobre Saúde',
     subtitle: 'Informações confiáveis e atualizadas sobre prevenção, tratamentos e bem-estar.',
     openInNewPage: false,

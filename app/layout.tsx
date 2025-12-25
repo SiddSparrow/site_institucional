@@ -1,5 +1,5 @@
 // layout.tsx - Versão simplificada
-import type { Metadata } from "next";
+import type { Metadata , Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
@@ -11,21 +11,29 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | ${siteConfig.description}`,
-  description: siteConfig.description,
-  keywords: ['psicóloga', 'psicologia', 'terapia', 'saúde mental', 'ansiedade', 'depressão', 'tcc'],
-  authors: [{ name: siteConfig.name }],
-  openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    type: 'website',
-    locale: 'pt_BR',
+  metadataBase: new URL('https://webexpress.com.br'),
+  
+  title: {
+    default: 'WebExpress - Sites Profissionais em 3 Dias',
+    template: '%s | WebExpress'
   },
-  robots: {
-    index: true,
-    follow: true,
+  
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
-};
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#3b82f6',
+}
 
 export default function RootLayout({
   children,
@@ -34,6 +42,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
+      <head>
+       <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        /> 
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XXXXXXXXXX');
+            `,
+          }}
+        />
+      </head>
       <body className={poppins.className} style={{backgroundColor:'transparent'}}>
         {children}
       </body>
