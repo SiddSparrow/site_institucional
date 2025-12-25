@@ -128,7 +128,7 @@ export default async function Home() {
     description: 'Desenvolvimento de sites profissionais e landing pages personalizadas em 3 dias. Hospedagem grátis, design responsivo e suporte incluso. A partir de R$300.',
     priceRange: 'R$300 - R$1000',
     email: 'contato@webexpress.com.br', // ← SEU EMAIL
-    telephone: '+55-21-99999-9999', // ← SEU TELEFONE
+    telephone: '+55-21-98555-1290', // ← SEU TELEFONE
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'BR',
